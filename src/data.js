@@ -35,6 +35,7 @@ export const skills = [
 export const projects = [
   {
     name: 'Olaeze Store',
+    year: 2026,
     featured: true,
     live: 'https://olaeze.com',
     code: '', // add GitHub link if public
@@ -47,6 +48,7 @@ export const projects = [
   },
   {
     name: 'Dolbic Church',
+    year: 2024, // ← confirm year
     featured: true,
     live: 'https://dolbic.com',
     code: '',
@@ -59,6 +61,7 @@ export const projects = [
   },
   {
     name: 'Rosevein Salon Booking',
+    year: 2026,
     featured: true,
     live: '', // ← deploying now — paste the live URL here once it's up
     code: '',
@@ -70,7 +73,22 @@ export const projects = [
     tags: ['Booking', 'Payments'],
   },
   {
+    name: 'Developer Portfolio',
+    year: 2026,
+    featured: false,
+    live: 'https://owadokunportfolio.netlify.app/',
+    code: 'https://github.com/infinitious/benjamin-portfolio', // ← confirm repo is public
+    summary: 'This very site — a React portfolio built from scratch.',
+    detail:
+      'Responsive, dark-themed single-page site with hand-written CSS (no UI ' +
+      'framework). Built with React + Vite and deployed on Netlify with ' +
+      'auto-deploy from GitHub.',
+    stack: ['React', 'Vite', 'CSS'],
+    tags: ['Frontend', 'Personal'],
+  },
+  {
     name: 'Hairxterification',
+    year: 2020,
     featured: false,
     live: 'https://hairxterification.netlify.app/',
     code: '',
@@ -82,6 +100,7 @@ export const projects = [
   },
   {
     name: 'Kennymark Couture',
+    year: 2020,
     featured: false,
     live: 'https://kennymarkcouture.netlify.app/',
     code: '',
@@ -93,6 +112,7 @@ export const projects = [
   },
   {
     name: 'Warehouse & Multi-Shop System',
+    year: 2023, // ← confirm year
     featured: false,
     live: '',
     code: 'https://github.com/infinitious',
@@ -105,6 +125,7 @@ export const projects = [
   },
   {
     name: 'CBT Exam System',
+    year: 2019, // ← confirm year
     featured: false,
     live: '',
     code: '',
@@ -116,6 +137,7 @@ export const projects = [
   },
   {
     name: 'Student Registration & Verification System',
+    year: 2019, // ← confirm year
     featured: false,
     live: '',
     code: 'https://github.com/infinitious/student-registration-and-verification-system', // ← confirm repo URL
@@ -127,6 +149,7 @@ export const projects = [
   },
   {
     name: 'Project Archive System',
+    year: 2020, // ← confirm year
     featured: false,
     live: '',
     code: 'https://github.com/infinitious/Project-Archive-System', // ← confirm repo URL
@@ -138,6 +161,7 @@ export const projects = [
   },
   {
     name: 'Point of Sales',
+    year: 2021, // ← confirm year
     featured: false,
     live: '',
     code: 'https://github.com/infinitious/Point-of-Sales', // ← confirm repo URL

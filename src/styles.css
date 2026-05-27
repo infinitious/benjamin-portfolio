@@ -158,7 +158,9 @@ img {
   position: sticky;                /* the WHOLE bar pins, not just the links */
   top: 0;
   z-index: 10;                     /* sit above cards when scrolling past */
-  background: var(--bg);           /* opaque so content doesn't show through */
+  background: rgba(11, 15, 20, 0.45);     /* glassy — lets the hero photo ghost through */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   padding: var(--s-4) var(--s-5);
 }
@@ -177,6 +179,27 @@ img {
 }
 .nav-links a:hover {
   color: var(--text);
+}
+
+/* ── PAGE BACKDROP — fixed "ghost" photo behind the WHOLE site ───────────── */
+/*
+   Lives on body::before so it covers the full viewport and stays put while the
+   page scrolls over it (the photo doesn't move). Photo: public/me.jpg.
+   - Lighten/darken with the two rgba alpha values below.
+   - Reframe the photo with the background-position (center center = middle).
+*/
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;                        /* cover the entire viewport */
+  z-index: -1;                     /* sit behind every bit of content */
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(11, 15, 20, 0.62),      /* ← raise toward 0.85 = darker */
+      rgba(11, 15, 20, 0.72)
+    ),
+    url('/me.jpg') center 10% / cover no-repeat;   /* desktop: shows more headroom up top, pushing the face down a bit */
 }
 
 /* ── 2. HERO ─────────────────────────────────────────────────────────────── */
@@ -242,12 +265,23 @@ img {
   border-color: var(--accent);     /* highlight your best work */
 }
 .card-eyebrow {
-  color: var(--accent);
+  display: flex;
+  justify-content: space-between;  /* tags left, year right */
+  align-items: baseline;
+  gap: var(--s-3);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.08em;          /* spaced-out caps = editorial label */
   text-transform: uppercase;
   margin-bottom: calc(-1 * var(--s-1));  /* tuck it close to the title */
+}
+.card-cats {
+  color: var(--accent);
+}
+.card-year {
+  color: var(--muted);            /* year reads quieter than the category */
+  flex-shrink: 0;                 /* never let it wrap or get squished */
+  font-variant-numeric: tabular-nums;
 }
 .card-head {
   display: flex;
@@ -336,6 +370,9 @@ img {
 
 /* ── 6. MOBILE ───────────────────────────────────────────────────────────── */
 @media (max-width: 700px) {
+  body::before {
+    background-position: center center;   /* mobile crops the sides, so center looks right */
+  }
   .nav {
     flex-direction: column;        /* stack logo above links */
     gap: var(--s-4);

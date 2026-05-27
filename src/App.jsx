@@ -4,9 +4,10 @@ import { profile, skills, projects } from './data.js';
 function ProjectCard({ p }) {
   return (
     <article className={`card ${p.featured ? 'featured' : ''}`}>
-      {p.tags?.length > 0 && (
-        <p className="card-eyebrow">{p.tags.join(' · ')}</p>
-      )}
+      <div className="card-eyebrow">
+        {p.tags?.length > 0 && <span className="card-cats">{p.tags.join(' · ')}</span>}
+        {p.year && <span className="card-year">{p.year}</span>}
+      </div>
       <div className="card-head">
         <h3>{p.name}</h3>
         {p.live
