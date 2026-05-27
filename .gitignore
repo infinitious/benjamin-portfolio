@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Local env / secrets
+.env
+.env.local
+.env.*.local
+
+# Editor / OS / tooling
+.vscode/
+.claude/
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+*.log
